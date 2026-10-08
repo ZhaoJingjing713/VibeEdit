@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="VibeEdit: Image Editing with Canvas Instructions. Circle, scribble, write and drag directly on an image to specify what to edit and where.">
+<meta name="theme-color" content="#f8f8f5"><meta property="og:title" content="VibeEdit — Image Editing with Canvas Instructions"><meta property="og:description" content="Edit images with spatial marks and short notes placed directly on the canvas."><meta property="og:type" content="website">
+<title>VibeEdit · Image Editing with Canvas Instructions</title>
+<link rel="icon" href="assets/brand/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/fonts/fonts.css"><link rel="stylesheet" href="styles.css?v=8"><script src="app.js?v=4" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header"><a class="brand" href="#" aria-label="VibeEdit home"><img src="assets/brand/mark.svg" width="33" height="33" alt=""><span>VibeEdit</span></a><nav aria-label="Main navigation"><a href="#interface">Interface</a><a href="#method">Method</a><a href="#data">Data</a><a href="#results">Results</a><a href="#gallery">Examples</a></nav><a class="header-paper" href="#abstract">About the paper <span class="small-dot"></span></a></header>
+<main id="main">
+<section class="hero wrap">
+<div class="eyebrow"><span class="red-rule"></span> IMAGE EDITING RESEARCH</div>
+<h1>Vibe<span class="edit-word">Edit<svg viewBox="0 0 300 25" aria-hidden="true"><path d="M4 16C63 0 202 3 291 11M25 22C96 12 184 12 251 16"/></svg></span><span class="title-period">.</span></h1>
+<h2>Image Editing with Canvas Instructions</h2>
+<div class="authors" id="authors"><p>Jinjing Zhao<sup>1,*</sup> &nbsp; Fangyun Wei<sup>2,*</sup> &nbsp; Yitong Wang<sup>3</sup> &nbsp; Xiuyu Wu<sup>4</sup> &nbsp; Yunuo Chen<sup>5</sup> &nbsp; Yang Yue<sup>6</sup><br> Sirui Zhang<sup>7</sup> &nbsp; Wenbo Wang<sup>1</sup> &nbsp; Hongyang Zhang<sup>8</sup> &nbsp; Dong Chen<sup>2</sup> &nbsp; Yan Lu<sup>2</sup> &nbsp; Chang Xu<sup>1,†</sup></p><details><summary>Affiliations & contributions</summary><p><sup>1</sup> University of Sydney &nbsp; <sup>2</sup> Microsoft Research &nbsp; <sup>3</sup> Fudan University &nbsp; <sup>4</sup> Nankai University<br><sup>5</sup> Shanghai Jiao Tong University &nbsp; <sup>6</sup> Tsinghua University &nbsp; <sup>7</sup> University of Science and Technology of China &nbsp; <sup>8</sup> University of Waterloo</p><p>* Equal contribution &nbsp; † Corresponding author</p></details></div>
+<div class="hero-actions"><a class="button primary" href="https://github.com/ZhaoJingjing713/VibeEdit" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.77-.24.77-.54v-2.1c-3.13.68-3.79-1.33-3.79-1.33-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.73 1.16 1.73 1.16 1 1.72 2.62 1.22 3.26.93.1-.72.39-1.22.71-1.5-2.5-.29-5.13-1.26-5.13-5.58 0-1.23.44-2.24 1.16-3.03-.12-.29-.5-1.43.11-2.98 0 0 .95-.3 3.08 1.16a10.7 10.7 0 0 1 5.6 0c2.14-1.46 3.09-1.16 3.09-1.16.61 1.55.23 2.69.11 2.98.72.79 1.16 1.8 1.16 3.03 0 4.33-2.63 5.29-5.14 5.57.4.35.76 1.03.76 2.08v3.11c0 .3.2.65.78.54A11.2 11.2 0 0 0 12 .8Z"/></svg>GitHub</a><span class="button paper-link button-unavailable" role="link" aria-disabled="true" aria-label="Paper, coming soon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M14 3H5v18h14V8zM14 3v5h5M8 12h8M8 16h6"/></svg>Paper <span class="coming-soon">Coming soon</span></span></div>
+<div class="hero-demo" id="hero-demo">
+<div class="demo-top"><div class="demo-tabs" role="tablist" aria-label="Editing operation"><button role="tab" id="tab-add" aria-controls="hero-panel" aria-selected="false" data-case="rose">Add <span>＋</span></button><button role="tab" id="tab-remove" aria-controls="hero-panel" aria-selected="false" data-case="patio">Remove <span>−</span></button><button role="tab" id="tab-replace" aria-controls="hero-panel" aria-selected="false" data-case="fern">Replace <span>↻</span></button><button role="tab" id="tab-modify" aria-controls="hero-panel" aria-selected="true" data-case="chair">Modify <span>◐</span></button><button role="tab" id="tab-move" aria-controls="hero-panel" aria-selected="false" data-case="cats">Move <span>↗</span></button></div><span class="demo-indicator">FIVE EDITING OPERATIONS</span></div>
+<div id="hero-panel" role="tabpanel" aria-labelledby="tab-modify"><div class="hero-pair"><figure><div class="image-caption"><span><b>01</b> Canvas instruction</span><span class="caption-note">Mark + note</span></div><img id="hero-input" src="assets/images/chair-canvas.webp" alt="Three chairs, with the middle chair circled and a note requesting velvet blue" width="1536" height="1024" fetchpriority="high"></figure><figure><div class="image-caption"><span><b>02</b> VibeEdit output</span><span class="caption-note">The intended change</span></div><img id="hero-output" src="assets/images/chair-output.webp" alt="The middle chair becomes velvet blue while the surrounding room is preserved" width="1536" height="1024" fetchpriority="high"></figure></div><div class="demo-footer"><p id="hero-description">Change the middle chair to velvet blue while preserving the rest of the room.</p><span>No separate text prompt</span></div></div>
+</div>
+
+</section>
+<section class="abstract-band" id="abstract"><div class="wrap abstract-grid"><div><h2>Overview</h2></div><div><p class="large-copy">Canvas instructions specify <em>what to change</em> and <em>where to edit</em> directly on the image.</p><p>VibeEdit uses <strong>canvas instructions</strong>: spatial marks and optional short notes drawn on the image. They identify the target and describe the change, even when several objects look alike. The model supports addition, removal, replacement, attribute modification and movement without a separate text prompt.</p><details class="abstract-details"><summary>Read the full abstract</summary><p>In text-guided image editing, describing the desired change is often straightforward, but identifying the intended object or region can be cumbersome, especially when several objects look alike. We introduce a new image editing interface that lets users place spatial marks and optional short notes directly on the image. Together, these annotations form a canvas instruction that specifies where to edit and what to change. Our editor, VibeEdit, follows these instructions to perform object addition, removal, replacement, attribute modification, and movement without a separate text prompt. We construct 1.55 million source–target edit pairs with object masks and structured edit descriptions, from which we render canvas instructions during training. We adapt Qwen-Image-Edit with layer-decoupled conditioning that separately encodes source images and canvas instructions for image editing. We train the model with region-weighted supervised fine-tuning, followed by rubric-guided reinforcement learning to improve edit completion, local edit quality, and preservation of unedited regions. We evaluate VibeEdit on an independently constructed, human-curated benchmark of 419 cases emphasizing target selection among similar objects. VibeEdit achieves a VLM rubric score of 79.9 and an outside-region PSNR of 32.8 dB, compared with 67.4 and 24.0 dB for FireRed, the highest-scoring text-instructed baseline in our evaluation.</p></details></div></div></section>
+<section class="section wrap" id="interface">
+  <div class="section-heading simple-heading"><div><span class="section-number">01</span><h2>Interface</h2></div><p>Mark the target and write a short note directly on the image. VibeEdit uses these canvas instructions to make the edit.</p></div>
+  <div class="grammar-grid">
+    <div><svg viewBox="0 0 100 60" aria-hidden="true"><path d="M70 9C39-1 16 17 23 40c7 20 46 17 55-4C87 12 54 3 37 8"/></svg><h3>Circle</h3><p>Select an object or an empty region.</p></div>
+    <div><svg viewBox="0 0 100 60" aria-hidden="true"><path d="m25 41 20-29-12 37 29-39-13 38 27-28-11 29"/></svg><h3>Scribble</h3><p>Mark an object to remove.</p></div>
+    <div><span class="type-symbol" aria-hidden="true">Aa</span><h3>Write</h3><p>Describe the new content or attribute.</p></div>
+    <div><svg viewBox="0 0 100 60" aria-hidden="true"><circle cx="20" cy="40" r="11"/><circle cx="80" cy="17" r="11" class="destination"/><path d="m31 35 34-13-7-4m7 4-3 8"/></svg><h3>Drag</h3><p>Connect the source and destination.</p></div>
+  </div>
+  <div class="edit-animation" id="edit-animation" data-step="0">
+    <div class="animation-heading"><div><h3>Change the middle chair to blue</h3><p>Circle the chair, add a color note, and let VibeEdit make the change.</p></div><div class="animation-controls"><button class="text-button" id="animation-play" aria-label="Play editing animation">Play</button><button class="text-button" id="animation-replay">Replay</button></div></div>
+    <div class="animation-canvas-row">
+      <figure class="animation-input"><figcaption>Canvas instruction</figcaption><div class="drawing-surface">
+        <img src="assets/images/chair-source.webp" width="1600" height="1067" alt="Source image with three white chairs">
+        <svg id="drawing-overlay" viewBox="0 0 1000 667" aria-label="An animated brush circles the middle chair and writes a color instruction">
+          <defs><clipPath id="note-clip-1"><rect id="note-reveal-1" x="649" y="60" width="0" height="48"/></clipPath><clipPath id="note-clip-2"><rect id="note-reveal-2" x="649" y="107" width="0" height="48"/></clipPath></defs>
+          <path pathLength="1" id="chair-stroke" d="M500 257C428 253 379 310 380 388C376 477 415 541 501 544C576 547 625 483 624 397C625 314 579 255 501 257" fill="none" stroke="#d33023" stroke-width="7" stroke-linecap="round"/>
+          <g fill="#d33023" font-family="'Instrument Serif',Georgia,serif" font-style="italic" font-size="42"><text x="650" y="99" clip-path="url(#note-clip-1)">change color</text><text x="650" y="146" clip-path="url(#note-clip-2)">to velvet blue</text></g>
+          <g id="brush-cursor" aria-hidden="true"><path d="m0 0 5-18 24-24 12 12-25 24Z" fill="#fff" stroke="#252823" stroke-width="2.5"/><path d="m0 0 5-18 11 12Z" fill="#d33023"/><path d="m25-38 12 12" stroke="#252823" stroke-width="2.5"/></g>
+        </svg>
+      </div></figure>
+      <div class="animation-model"><div class="model-connector"></div><div class="model-chip"><img src="assets/brand/mark.svg" alt="" width="30" height="30"><strong>VibeEdit</strong><span id="model-status" role="status">Ready</span><div class="model-progress"><i id="model-progress-fill"></i></div></div><div class="model-connector"></div></div>
+      <figure class="animation-output"><figcaption>Edited image</figcaption><div class="output-surface"><img class="output-underlay" src="assets/images/chair-source.webp" alt="" width="1600" height="1067"><img id="animated-result" src="assets/images/chair-output.webp" width="1536" height="1024" alt="The middle chair is now velvet blue; the surrounding room is preserved"><div id="output-waiting">The edited image appears here.</div></div></figure>
+    </div>
+    <div class="animation-bottom"><div class="animation-steps" role="group" aria-label="Animation stages"><button data-animation-step="0" aria-pressed="true"><b>1</b> Annotate</button><button data-animation-step="1" aria-pressed="false"><b>2</b> Generate</button><button data-animation-step="2" aria-pressed="false"><b>3</b> Result</button></div><p>Animation of a recorded result.</p></div>
+  </div>
+</section>
+<section class="method-section" id="method"><div class="wrap section"><div class="section-heading simple-heading"><div><span class="section-number">02</span><h2>Method</h2></div><p>VibeEdit adapts Qwen-Image-Edit with separate source and canvas conditioning, region-weighted supervised training, and reinforcement learning.</p></div>
+<div class="method-nav" role="tablist" aria-label="Method stages"><button id="stage-tab-0" role="tab" aria-selected="true" aria-controls="stage-panel" data-stage="0"><span>01</span> Layer-decoupled conditioning</button><button id="stage-tab-1" role="tab" aria-selected="false" aria-controls="stage-panel" data-stage="1"><span>02</span> Region-weighted SFT</button><button id="stage-tab-2" role="tab" aria-selected="false" aria-controls="stage-panel" data-stage="2"><span>03</span> Rubric-guided RL</button></div>
+<div id="stage-panel" role="tabpanel" aria-labelledby="stage-tab-0"><div class="method-stage" data-panel="0"><div class="flow-inputs"><div><img src="assets/images/method-annotated.webp" alt="Canvas-annotated image requesting replacement of a chair with a red suitcase" loading="lazy"><span>Annotated image <i>A = I ⊕ C</i></span><div class="flow-connector"></div><div class="encoder">Qwen2.5-VL <small>FROZEN</small></div><div class="token-set"><b></b><b></b><b></b><b></b><b></b><span>semantic tokens</span></div></div><div><img src="assets/images/method-source.webp" alt="Clean source image of a hiker standing beside a folding chair" loading="lazy"><span>Clean source <i>I</i></span><div class="flow-connector"></div><div class="encoder">VAE encoder <small>FROZEN</small></div><div class="token-set source-tokens"><b></b><b></b><b></b><b></b><b></b><span>source tokens</span></div></div><div><img src="assets/images/method-canvas.webp" alt="Isolated red circle and replacement note on neutral gray" loading="lazy"><span>Canvas layer <i>C̄</i></span><div class="flow-connector"></div><div class="encoder">VAE encoder <small>FROZEN</small></div><div class="token-set canvas-tokens"><b></b><b></b><b></b><b></b><b></b><span>canvas tokens</span></div></div></div><div class="dit-block"><div><span class="flow-kicker">SEMANTICS + SOURCE + CANVAS + NOISY TARGET</span><h3>Qwen-Image-Edit DiT</h3></div><span class="lora-tag">Trainable LoRA · rank 128</span></div><div class="method-explainer"><h3>Separate source and canvas conditioning</h3><p>Qwen2.5-VL reads the annotated image. The VAE separately encodes the clean source and the canvas marks. The DiT uses these inputs to produce the edit. The encoders and original DiT weights remain frozen; rank-128 LoRA adapters are trained.</p></div></div>
+<div class="method-stage" data-panel="1" hidden>
+  <div class="method-intro"><h3>Region-weighted supervised fine-tuning</h3><p>Increase the loss weight over the edited object and the canvas marks. Keep supervision on the rest of the image.</p></div>
+  <div class="sft-demo" id="sft-demo" data-mask="weighted">
+    <div class="mask-steps" role="group" aria-label="Supervision mask visualization"><button data-mask="object" aria-pressed="false"><b>1</b> Object region</button><button data-mask="annotation" aria-pressed="false"><b>2</b> Canvas marks</button><button data-mask="union" aria-pressed="false"><b>3</b> Combine + dilate</button><button data-mask="weighted" class="active" aria-pressed="true"><b>4</b> Loss weights</button></div>
+    <div class="mask-layout"><div class="mask-image"><img src="assets/images/method-source.webp" width="1448" height="1086" alt="Source image with a folding chair to replace">
+      <svg viewBox="0 0 1000 750" aria-label="Illustrative object and annotation supervision regions">
+        <defs>
+          <filter id="extract-marks" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 .29  0 0 0 0 .13  2 -1 -1 0 0"/></filter>
+          <filter id="dilate-regions" x="-20%" y="-20%" width="140%" height="140%"><feMorphology operator="dilate" radius="34.5"/></filter>
+          <path id="chair-region" d="M480 480L524 478L536 385L688 382L701 479L782 484L777 500L731 496L718 681L727 717L708 719L697 638L621 685L600 709L584 707L667 630L592 602L557 655L553 708L539 708L539 583L525 536L488 504Z"/>
+          <g id="instruction-region"><image href="assets/images/method-canvas.webp" width="1000" height="750" preserveAspectRatio="none" filter="url(#extract-marks)"/></g>
+          <g id="combined-regions"><use href="#chair-region" fill="#f49a34"/><use href="#instruction-region"/></g>
+        </defs>
+        <rect class="mask-dim" width="1000" height="750" fill="#ffffff" opacity=".58"/>
+        <g class="mask-object"><use href="#chair-region" fill="#ee942c" fill-opacity=".62" stroke="#b66c12" stroke-width="3"/></g>
+        <g class="mask-annotations"><use href="#instruction-region"/></g>
+        <g class="mask-dilation" opacity=".53" filter="url(#dilate-regions)"><use href="#combined-regions"/></g>
+        <g class="weight-labels"><rect x="65" y="554" width="177" height="63" rx="6" fill="white"/><text x="153" y="595" text-anchor="middle" fill="#555b54" font-size="28">1× loss</text><rect x="535" y="480" width="190" height="65" rx="6" fill="#a84420"/><text x="630" y="523" text-anchor="middle" fill="white" font-size="29">2.5× loss</text></g>
+      </svg>
+    </div><div class="mask-explanation"><span class="mini-label" id="mask-step-label">STEP 4 / LOSS WEIGHTS</span><h3 id="mask-title">Emphasize the edit and mark removal</h3><p id="mask-description">Pixels inside the dilated region receive 2.5× the usual loss weight. All other pixels keep a weight of 1.</p><div class="mask-equation" id="mask-equation">w = 1 + 1.5 M̃</div><div class="mask-key"><span><i></i>Edited object</span><span><i></i>Canvas marks</span></div><p class="mask-note">Region shapes are schematic. The paper uses object masks and rendered annotation masks, with 50 px dilation before latent downsampling.</p></div></div>
+  </div>
+  <p class="method-note">The mask is used only to weight the training loss. Users do not provide a mask at inference.</p>
+</div>
+<div class="method-stage" data-panel="2" hidden>
+  <div class="method-intro"><h3>Rubric-guided reinforcement learning</h3><p>Sample several edits for the same instruction, evaluate them, and use the rewards to update the model with DiffusionNFT.</p></div>
+  <div class="rollout-header"><h3 class="rl-step-title"><span>1.</span> Sample candidate edits</h3><span>12 rollouts per condition · 4 illustrations below</span></div>
+  <div class="rollout-gallery">
+    <figure><img src="assets/images/rollout-correct.webp" loading="lazy" alt="Candidate with one red suitcase"><figcaption><span>Candidate A</span>Red suitcase</figcaption></figure>
+    <figure><img src="assets/images/rollout-large.webp" loading="lazy" alt="Candidate with an oversized red suitcase"><figcaption><span>Candidate B</span>Oversized suitcase</figcaption></figure>
+    <figure><img src="assets/images/rollout-duplicate.webp" loading="lazy" alt="Candidate with two red suitcases"><figcaption><span>Candidate C</span>Duplicate object</figcaption></figure>
+    <figure><img src="assets/images/rollout-color.webp" loading="lazy" alt="Candidate with a suitcase in the wrong color"><figcaption><span>Candidate D</span>Wrong color</figcaption></figure>
+  </div>
+  <p class="method-note">Candidates shown above are illustrations from the paper’s pipeline figure.</p>
+  <div class="reward-step">
+    <h3 class="rl-step-title"><span>2.</span> Compute a reward for each edit</h3>
+    <div class="reward-intro"><p>The reward rubric has three groups, each containing multiple yes/no sub-questions. Below are question excerpts quoted from the appendix; the applicable questions depend on the edit type.</p><span class="reward-answer-key"><span>Yes <b>1</b></span><span>No <b>0</b></span></span></div>
+    <div class="reward-criteria">
+      <div><h4>Edit success</h4><span class="reward-example-label">Appendix excerpt · Addition</span><p>“Was {object_desc} added clearly and primarily inside the red TARGET bbox, while fitting the local scene?”</p></div>
+      <div><h4>Outside preservation</h4><span class="reward-example-label">Appendix excerpt · Shared</span><p>“Did the edited image avoid unrelated extra edits beyond the requested visual instruction?”</p></div>
+      <div><h4>Local edit quality</h4><span class="reward-example-label">Appendix excerpt · Shared</span><p>“Does the edited TARGET region fit naturally into the surrounding scene?”</p></div>
+    </div>
+    <div class="reward-merge" aria-hidden="true"><span>↓</span></div>
+    <div class="reward-calculation" aria-label="Final reward equals rubric pass rate minus preservation penalty">
+      <strong>Final reward</strong><span class="reward-operator" aria-hidden="true">=</span><div><h4>Rubric pass rate</h4><p>Fraction of all applicable sub-questions answered “yes”, across the three groups.</p></div><span class="reward-operator" aria-hidden="true">−</span><div><h4>Preservation penalty</h4><p>Subtract 0.3 if outside-region PSNR is below 25 dB.</p></div>
+    </div>
+  </div>
+  <div class="nft-box" id="nft-box" data-phase="0"><div class="nft-heading"><div><h3 class="rl-step-title"><span>3.</span> Update with DiffusionNFT</h3><p>Rewards determine how much each rollout contributes to the two training branches.</p></div><button class="button" id="nft-replay">Play update</button></div>
+    <div class="nft-flow">
+      <div class="nft-node" data-nft-node="0"><span class="mini-label">RE-NOISE</span><div class="latent-preview"><img src="assets/images/rollout-correct.webp" alt="A rollout used to illustrate re-noising" loading="lazy"><svg viewBox="0 0 200 140" aria-hidden="true"><filter id="latent-noise"><feTurbulence type="fractalNoise" baseFrequency=".65" numOctaves="3" seed="8"/></filter><rect width="200" height="140" filter="url(#latent-noise)"/></svg></div><strong>z₀ → zₜ</strong><p>Add noise to a rollout latent.</p></div>
+      <span class="nft-arrow" aria-hidden="true">→</span>
+      <div class="nft-node" data-nft-node="1"><span class="mini-label">PREDICT VELOCITIES</span><div class="policy-box">Current policy <b>v<sub>θ</sub></b></div><div class="policy-box old-policy">Old policy <b>v<sub>old</sub></b></div><p>Both use the same zₜ, timestep and edit condition.</p></div>
+      <span class="nft-arrow" aria-hidden="true">→</span>
+      <div class="nft-node nft-branches" data-nft-node="2"><span class="mini-label">WEIGHT TWO BRANCHES</span><div class="positive-branch"><span>Positive · ρ</span><strong>v⁺ = v<sub>θ</sub></strong></div><div class="negative-branch"><span>Negative · 1 − ρ</span><strong>v⁻ = 2v<sub>old</sub> − v<sub>θ</sub></strong></div><p>Expressions use β = 1, as in the paper.</p></div>
+      <span class="nft-arrow" aria-hidden="true">→</span>
+      <div class="nft-node" data-nft-node="3"><span class="mini-label">OPTIMIZE</span><div class="update-symbol" aria-hidden="true">θ <span>↻</span></div><strong>Update LoRA</strong><p>Minimize weighted reconstruction losses with reference regularization.</p></div>
+    </div>
+  </div>
+</div>
+</div>
+<details class="paper-figure"><summary>View the original model pipeline <span>FIGURE 3</span></summary><button class="figure-button" data-figure="pipe" aria-label="Enlarge model pipeline"><img src="assets/figures/pipe.webp" loading="lazy" alt="Original paper figure showing supervised learning and reinforcement learning pipelines"></button><a href="assets/figures/pipe.pdf" target="_blank" rel="noopener">Open full-resolution PDF</a></details>
+</div></section>
+<section class="section wrap" id="data">
+  <div class="section-heading simple-heading"><div><span class="section-number">03</span><h2>Data</h2></div><p>We construct source–target image pairs offline and render canvas instructions during training.</p></div>
+  <div class="data-summary"><div><strong>1,554,062</strong><span>supervised training pairs</span></div><div><strong>3,520</strong><span>RL conditions · 704 per task</span></div></div>
+  <ol class="construction-flow">
+    <li><span>1</span><h3>Select and segment</h3><p>Florence-2 proposes objects. GPT-5.6-sol selects an editable target and describes the change. SAM 3 produces the object mask.</p></li>
+    <li><span>2</span><h3>Generate edit pairs</h3><p>Use the generators below to produce edited targets. Store each pair with its object masks and structured edit descriptions.</p></li>
+    <li><span>3</span><h3>Filter and annotate</h3><p>GPT-5.6-sol filters low-quality pairs. During training, render varied circles, scribbles, arrows and short notes from the stored records.</p></li>
+  </ol>
+  <div class="data-table-wrap"><table class="data-table"><caption>Supervised training corpus</caption><thead><tr><th scope="col">Edit type</th><th scope="col">Pair generation</th><th scope="col">Stored pairs</th></tr></thead><tbody>
+    <tr><th scope="row">Addition / removal</th><td>ObjectClear removes an object; reverse the pair for addition.</td><td>435,496</td></tr>
+    <tr><th scope="row">Attribute modification</th><td>Qwen-Image-Edit changes a selected attribute.</td><td>458,154</td></tr>
+    <tr><th scope="row">Replacement</th><td>FLUX.1 Fill replaces an object inside an expanded mask.</td><td>393,440</td></tr>
+    <tr><th scope="row">Movement</th><td>Qwen-Image-Edit moves the object; SAM 3 finds its destination mask.</td><td>266,972</td></tr>
+  </tbody></table></div>
+  <div class="data-bottom"><p>Addition/removal pairs are counted once. Counts exclude online reversals and annotation variations. RL conditions are selected by high reward variation across sampled edits.</p></div>
+  <details class="paper-figure"><summary>View the original data pipeline <span>FIGURE 2</span></summary><button class="figure-button" data-figure="data-pipe" aria-label="Enlarge data pipeline"><img src="assets/figures/data-pipe.webp" loading="lazy" alt="Original paper figure showing data construction and canvas instruction generation"></button><a href="assets/figures/data-pipe.pdf" target="_blank" rel="noopener">Open full-resolution PDF</a></details>
+</section>
+<section class="results-section" id="results"><div class="wrap section">
+  <div class="section-heading simple-heading"><div><span class="section-number">04</span><h2>Results</h2></div><p>We evaluate whether the model completes the requested edit on the correct target and preserves the rest of the image.</p></div>
+  <div class="evaluation-intro"><div class="benchmark-description"><h3>VibeEdit benchmark</h3><p>An independent, human-curated set of <strong>419 cases</strong>. Images often contain similar-looking objects, making target selection challenging.</p><div class="benchmark-counts"><span><b>96</b> Add</span><span><b>80</b> Remove</span><span><b>83</b> Modify</span><span><b>78</b> Replace</span><span><b>82</b> Move</span></div><p>Each case includes a human-specified edit region and intended change. Text-instructed baselines receive a detailed external prompt, averaging 21.3 words. VibeEdit receives the source image and canvas instruction.</p></div><div class="metrics-description"><h3>Metrics</h3><dl><dt>VLM rubric score (%)</dt><dd>A fixed GPT-5.6-sol judge checks edit success, outside preservation and local edit quality with binary questions. Per-case pass rates are averaged within each task, then equally across the five tasks.</dd><dt>Outside-region PSNR (dB)</dt><dd>Compares source and output pixels outside a padded edit region. Higher values indicate better preservation. This metric is evaluated alongside edit success.</dd></dl><span class="metric-direction">Higher is better for both metrics.</span></div></div>
+<div class="benchmark-table"><div class="table-heading"><h3>Full comparison</h3><label>Input setting <select id="setting-filter"><option value="all">All settings</option><option value="text">Text-instructed</option><option value="visual">Visual-only</option></select></label></div><div class="table-scroll"><table><caption>VLM rubric score (%) / outside-region PSNR (dB). Higher is better for both metrics.</caption><thead><tr><th scope="col">Method</th><th scope="col">Add</th><th scope="col">Remove</th><th scope="col">Modify</th><th scope="col">Replace</th><th scope="col">Move</th><th scope="col">Overall</th></tr></thead><tbody id="results-body"></tbody></table></div><p class="table-note">Visual-only baselines receive the annotated image. Text-instructed baselines receive the source and an external instruction. VibeEdit receives the source and canvas layers without a separate text prompt.</p></div>
+</div></section>
+<section class="section wrap gallery-section" id="gallery"><div class="section-heading simple-heading"><div><span class="section-number">05</span><h2>Examples</h2></div><p>Drag the divider to compare the canvas instruction and edited image. Select “Enlarge” to see both images in full.</p></div><div class="gallery-grid" id="gallery-grid"></div><noscript><p>Enable JavaScript to browse the interactive gallery, or <a href="assets/figures/more-demo.pdf">view the full results PDF</a>.</p></noscript></section>
+<section class="paper-section wrap" id="paper"><div><div class="eyebrow">THE PAPER</div><h2>VibeEdit<span>.</span></h2><p>Image Editing with Canvas Instructions</p><div class="paper-actions"><a class="button primary" href="assets/vibeedit-source.zip" download>Manuscript source</a><a class="button" href="assets/figures/more-demo.pdf" target="_blank" rel="noopener">Full visual results</a></div></div><div class="citation"><div><span class="mini-label">CITE THIS WORK</span><button id="copy-citation" class="text-button">Copy BibTeX</button></div><pre id="bibtex">@unpublished{zhao2026vibeedit,
+  title  = {VibeEdit: Image Editing with Canvas Instructions},
+  author = {Zhao, Jinjing and Wei, Fangyun and Wang, Yitong
+            and Wu, Xiuyu and Chen, Yunuo and Yue, Yang
+            and Zhang, Sirui and Wang, Wenbo and Zhang, Hongyang
+            and Chen, Dong and Lu, Yan and Xu, Chang},
+  year   = {2026},
+  note   = {Manuscript}
+}</pre><span id="copy-status" role="status"></span></div></section>
+<dialog id="image-modal" class="image-modal"><div class="modal-top"><h2 id="modal-title">Example</h2><button id="close-modal" class="text-button" aria-label="Close enlarged image">Close ×</button></div><div id="modal-content"></div><p id="modal-caption"></p></dialog>
+
+</main>
+<footer class="wrap footer"><a class="brand" href="#"><img src="assets/brand/mark.svg" width="30" height="30" alt="">VibeEdit</a><p>Image Editing with Canvas Instructions</p><a href="#main">Back to top</a></footer>
+</body></html>

@@ -1,0 +1,506 @@
+[
+  {
+    "asset": "assets/images/chair-canvas.webp",
+    "source": "ppt/teaser.pptx / ppt/media/image1.png",
+    "original_size": [
+      2056,
+      1372
+    ]
+  },
+  {
+    "asset": "assets/images/chair-output.webp",
+    "source": "ppt/teaser.pptx / ppt/media/image2.png",
+    "original_size": [
+      1536,
+      1024
+    ]
+  },
+  {
+    "asset": "assets/images/rose-canvas.webp",
+    "source": "ppt/teaser.pptx / ppt/media/image8.png",
+    "original_size": [
+      2650,
+      1766
+    ]
+  },
+  {
+    "asset": "assets/images/rose-output.webp",
+    "source": "ppt/teaser.pptx / ppt/media/image9.png",
+    "original_size": [
+      1536,
+      1024
+    ]
+  },
+  {
+    "asset": "assets/images/patio-canvas.webp",
+    "source": "ppt/teaser.pptx / ppt/media/image10.png",
+    "original_size": [
+      1216,
+      832
+    ]
+  },
+  {
+    "asset": "assets/images/patio-output.webp",
+    "source": "ppt/teaser.pptx / ppt/media/image11.png",
+    "original_size": [
+      1216,
+      832
+    ]
+  },
+  {
+    "asset": "assets/images/cats-canvas.webp",
+    "source": "ppt/teaser.pptx / ppt/media/image12.png",
+    "original_size": [
+      1216,
+      832
+    ]
+  },
+  {
+    "asset": "assets/images/cats-output.webp",
+    "source": "ppt/teaser.pptx / ppt/media/image13.png",
+    "original_size": [
+      1216,
+      832
+    ]
+  },
+  {
+    "asset": "assets/images/fern-canvas.webp",
+    "source": "ppt/teaser.pptx / ppt/media/image16.png",
+    "original_size": [
+      1224,
+      840
+    ]
+  },
+  {
+    "asset": "assets/images/fern-output.webp",
+    "source": "ppt/teaser.pptx / ppt/media/image17.png",
+    "original_size": [
+      1216,
+      832
+    ]
+  },
+  {
+    "asset": "assets/images/headphones-canvas.webp",
+    "source": "ppt/teaser.pptx / ppt/media/image19.png",
+    "original_size": [
+      1224,
+      884
+    ]
+  },
+  {
+    "asset": "assets/images/headphones-output.webp",
+    "source": "ppt/teaser.pptx / ppt/media/image20.png",
+    "original_size": [
+      1152,
+      832
+    ]
+  },
+  {
+    "asset": "assets/images/chair-source.webp",
+    "source": "ppt/teaser.pptx / ppt/media/image21.png",
+    "original_size": [
+      1904,
+      1270
+    ]
+  },
+  {
+    "asset": "assets/images/dog-canvas.webp",
+    "source": "ppt/more-demo.pptx / ppt/media/image1.png",
+    "original_size": [
+      1216,
+      832
+    ]
+  },
+  {
+    "asset": "assets/images/dog-output.webp",
+    "source": "ppt/more-demo.pptx / ppt/media/image6.png",
+    "original_size": [
+      1216,
+      832
+    ]
+  },
+  {
+    "asset": "assets/images/cushion-canvas.webp",
+    "source": "ppt/more-demo.pptx / ppt/media/image2.png",
+    "original_size": [
+      1216,
+      832
+    ]
+  },
+  {
+    "asset": "assets/images/cushion-output.webp",
+    "source": "ppt/more-demo.pptx / ppt/media/image7.png",
+    "original_size": [
+      1216,
+      832
+    ]
+  },
+  {
+    "asset": "assets/images/lamp-canvas.webp",
+    "source": "ppt/more-demo.pptx / ppt/media/image3.png",
+    "original_size": [
+      1216,
+      832
+    ]
+  },
+  {
+    "asset": "assets/images/lamp-output.webp",
+    "source": "ppt/more-demo.pptx / ppt/media/image8.png",
+    "original_size": [
+      1216,
+      832
+    ]
+  },
+  {
+    "asset": "assets/images/basket-canvas.webp",
+    "source": "ppt/more-demo.pptx / ppt/media/image4.png",
+    "original_size": [
+      1216,
+      832
+    ]
+  },
+  {
+    "asset": "assets/images/basket-output.webp",
+    "source": "ppt/more-demo.pptx / ppt/media/image9.png",
+    "original_size": [
+      1216,
+      832
+    ]
+  },
+  {
+    "asset": "assets/images/cup-canvas.webp",
+    "source": "ppt/more-demo.pptx / ppt/media/image5.png",
+    "original_size": [
+      1216,
+      832
+    ]
+  },
+  {
+    "asset": "assets/images/cup-output.webp",
+    "source": "ppt/more-demo.pptx / ppt/media/image10.png",
+    "original_size": [
+      1216,
+      832
+    ]
+  },
+  {
+    "asset": "assets/images/pastry-canvas.webp",
+    "source": "ppt/more-demo.pptx / ppt/media/image11.png",
+    "original_size": [
+      768,
+      1344
+    ]
+  },
+  {
+    "asset": "assets/images/pastry-output.webp",
+    "source": "ppt/more-demo.pptx / ppt/media/image17.png",
+    "original_size": [
+      768,
+      1344
+    ]
+  },
+  {
+    "asset": "assets/images/facade-canvas.webp",
+    "source": "ppt/more-demo.pptx / ppt/media/image12.png",
+    "original_size": [
+      832,
+      1216
+    ]
+  },
+  {
+    "asset": "assets/images/facade-output.webp",
+    "source": "ppt/more-demo.pptx / ppt/media/image18.png",
+    "original_size": [
+      832,
+      1216
+    ]
+  },
+  {
+    "asset": "assets/images/ac-canvas.webp",
+    "source": "ppt/more-demo.pptx / ppt/media/image13.png",
+    "original_size": [
+      832,
+      1216
+    ]
+  },
+  {
+    "asset": "assets/images/ac-output.webp",
+    "source": "ppt/more-demo.pptx / ppt/media/image19.png",
+    "original_size": [
+      832,
+      1216
+    ]
+  },
+  {
+    "asset": "assets/images/metal-canvas.webp",
+    "source": "ppt/more-demo.pptx / ppt/media/image14.png",
+    "original_size": [
+      768,
+      1344
+    ]
+  },
+  {
+    "asset": "assets/images/metal-output.webp",
+    "source": "ppt/more-demo.pptx / ppt/media/image20.png",
+    "original_size": [
+      768,
+      1344
+    ]
+  },
+  {
+    "asset": "assets/images/cow-canvas.webp",
+    "source": "ppt/more-demo.pptx / ppt/media/image15.png",
+    "original_size": [
+      832,
+      1216
+    ]
+  },
+  {
+    "asset": "assets/images/cow-output.webp",
+    "source": "ppt/more-demo.pptx / ppt/media/image21.png",
+    "original_size": [
+      832,
+      1216
+    ]
+  },
+  {
+    "asset": "assets/images/market-canvas.webp",
+    "source": "ppt/more-demo.pptx / ppt/media/image16.png",
+    "original_size": [
+      896,
+      1152
+    ]
+  },
+  {
+    "asset": "assets/images/market-output.webp",
+    "source": "ppt/more-demo.pptx / ppt/media/image22.png",
+    "original_size": [
+      896,
+      1152
+    ]
+  },
+  {
+    "asset": "assets/images/dessert-canvas.webp",
+    "source": "ppt/more-demo.pptx / ppt/media/image23.png",
+    "original_size": [
+      832,
+      1216
+    ]
+  },
+  {
+    "asset": "assets/images/dessert-output.webp",
+    "source": "ppt/more-demo.pptx / ppt/media/image28.png",
+    "original_size": [
+      832,
+      1216
+    ]
+  },
+  {
+    "asset": "assets/images/eggs-canvas.webp",
+    "source": "ppt/more-demo.pptx / ppt/media/image24.png",
+    "original_size": [
+      1152,
+      832
+    ]
+  },
+  {
+    "asset": "assets/images/eggs-output.webp",
+    "source": "ppt/more-demo.pptx / ppt/media/image29.png",
+    "original_size": [
+      1152,
+      832
+    ]
+  },
+  {
+    "asset": "assets/images/boat-canvas.webp",
+    "source": "ppt/more-demo.pptx / ppt/media/image25.png",
+    "original_size": [
+      832,
+      1216
+    ]
+  },
+  {
+    "asset": "assets/images/boat-output.webp",
+    "source": "ppt/more-demo.pptx / ppt/media/image30.png",
+    "original_size": [
+      832,
+      1216
+    ]
+  },
+  {
+    "asset": "assets/images/coracle-canvas.webp",
+    "source": "ppt/more-demo.pptx / ppt/media/image26.png",
+    "original_size": [
+      1216,
+      832
+    ]
+  },
+  {
+    "asset": "assets/images/coracle-output.webp",
+    "source": "ppt/more-demo.pptx / ppt/media/image31.png",
+    "original_size": [
+      1216,
+      832
+    ]
+  },
+  {
+    "asset": "assets/images/glasses-canvas.webp",
+    "source": "ppt/more-demo.pptx / ppt/media/image27.png",
+    "original_size": [
+      1216,
+      832
+    ]
+  },
+  {
+    "asset": "assets/images/glasses-output.webp",
+    "source": "ppt/more-demo.pptx / ppt/media/image32.png",
+    "original_size": [
+      1216,
+      832
+    ]
+  },
+  {
+    "asset": "assets/images/teacup-canvas.webp",
+    "source": "ppt/more-demo.pptx / ppt/media/image33.png",
+    "original_size": [
+      832,
+      1152
+    ]
+  },
+  {
+    "asset": "assets/images/teacup-output.webp",
+    "source": "ppt/more-demo.pptx / ppt/media/image34.png",
+    "original_size": [
+      832,
+      1152
+    ]
+  },
+  {
+    "asset": "assets/images/blossom-canvas.webp",
+    "source": "ppt/more-demo.pptx / ppt/media/image35.png",
+    "original_size": [
+      832,
+      1216
+    ]
+  },
+  {
+    "asset": "assets/images/blossom-output.webp",
+    "source": "ppt/more-demo.pptx / ppt/media/image36.png",
+    "original_size": [
+      832,
+      1216
+    ]
+  },
+  {
+    "asset": "assets/images/flowers-canvas.webp",
+    "source": "ppt/more-demo.pptx / ppt/media/image37.png",
+    "original_size": [
+      1216,
+      832
+    ]
+  },
+  {
+    "asset": "assets/images/flowers-output.webp",
+    "source": "ppt/more-demo.pptx / ppt/media/image38.png",
+    "original_size": [
+      1216,
+      832
+    ]
+  },
+  {
+    "asset": "assets/images/food-canvas.webp",
+    "source": "ppt/more-demo.pptx / ppt/media/image39.png",
+    "original_size": [
+      832,
+      1216
+    ]
+  },
+  {
+    "asset": "assets/images/food-output.webp",
+    "source": "ppt/more-demo.pptx / ppt/media/image40.png",
+    "original_size": [
+      832,
+      1216
+    ]
+  },
+  {
+    "asset": "assets/images/crowd-canvas.webp",
+    "source": "ppt/more-demo.pptx / ppt/media/image41.png",
+    "original_size": [
+      1344,
+      768
+    ]
+  },
+  {
+    "asset": "assets/images/crowd-output.webp",
+    "source": "ppt/more-demo.pptx / ppt/media/image42.png",
+    "original_size": [
+      1344,
+      768
+    ]
+  },
+  {
+    "asset": "assets/images/method-source.webp",
+    "source": "ppt/pipe.pptx / ppt/media/image2.png",
+    "original_size": [
+      1448,
+      1086
+    ]
+  },
+  {
+    "asset": "assets/images/method-canvas.webp",
+    "source": "ppt/pipe.pptx / ppt/media/image14.png",
+    "original_size": [
+      1224,
+      948
+    ]
+  },
+  {
+    "asset": "assets/images/method-target.webp",
+    "source": "ppt/pipe.pptx / ppt/media/image3.png",
+    "original_size": [
+      1448,
+      1086
+    ]
+  },
+  {
+    "asset": "assets/images/method-annotated.webp",
+    "source": "ppt/pipe.pptx / ppt/media/image15.png",
+    "original_size": [
+      1224,
+      920
+    ]
+  },
+  {
+    "asset": "assets/images/rollout-correct.webp",
+    "source": "ppt/pipe.pptx / ppt/media/image3.png",
+    "original_size": [
+      1448,
+      1086
+    ]
+  },
+  {
+    "asset": "assets/images/rollout-large.webp",
+    "source": "ppt/pipe.pptx / ppt/media/image7.png",
+    "original_size": [
+      1152,
+      896
+    ]
+  },
+  {
+    "asset": "assets/images/rollout-duplicate.webp",
+    "source": "ppt/pipe.pptx / ppt/media/image8.png",
+    "original_size": [
+      1152,
+      896
+    ]
+  },
+  {
+    "asset": "assets/images/rollout-color.webp",
+    "source": "ppt/pipe.pptx / ppt/media/image9.png",
+    "original_size": [
+      1152,
+      896
+    ]
+  }
+]
