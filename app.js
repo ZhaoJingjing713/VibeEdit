@@ -1,5 +1,28 @@
 const heroCases={chair:{text:'Change the middle chair to velvet blue while preserving the rest of the room.',alt:'The selected middle chair changes from white to velvet blue'},rose:{text:'Add a red rose in the circled area.',alt:'A red rose in a glass vase is added to the marked area on a wooden table'},patio:{text:'Remove the marked chair and fill the area behind it.',alt:'The marked patio chair is removed while the surrounding seating is retained'},fern:{text:'Replace the selected pair of boots with a potted fern.',alt:'The selected boots in a shop window are replaced by a tall potted fern'},cats:{text:'Move the selected cat figurine to the marked destination.',alt:'The selected cat figurine moves from the lower shelf to the upper right shelf'}};
-function selectHero(button){const key=button.dataset.case;document.querySelectorAll('.demo-tabs button').forEach(b=>{b.setAttribute('aria-selected',b===button);b.tabIndex=b===button?0:-1});document.getElementById('hero-panel').setAttribute('aria-labelledby',button.id);document.getElementById('hero-input').src=`assets/images/${key}-canvas.webp`;document.getElementById('hero-input').alt=`Canvas instruction: ${heroCases[key].alt}`;document.getElementById('hero-output').src=`assets/images/${key}-output.webp`;document.getElementById('hero-output').alt=heroCases[key].alt;document.getElementById('hero-description').textContent=heroCases[key].text;}
+let heroSelection = 0;
+async function selectHero(button) {
+  const selection = ++heroSelection, key = button.dataset.case;
+  const panel = document.getElementById('hero-panel');
+  panel.setAttribute('aria-busy', 'true');
+  const sources = [`assets/images/${key}-canvas.webp`, `assets/images/${key}-output.webp`];
+  try {
+    await Promise.all(sources.map(src => {const img = new Image(); img.src = src; return img.decode();}));
+    if (selection !== heroSelection) return;
+    document.querySelectorAll('.demo-tabs button').forEach(b => {b.setAttribute('aria-selected', b === button); b.tabIndex = b === button ? 0 : -1;});
+    panel.setAttribute('aria-labelledby', button.id);
+    const input = document.getElementById('hero-input'), output = document.getElementById('hero-output');
+    input.src = sources[0]; output.src = sources[1];
+    input.alt = `Canvas instruction: ${heroCases[key].alt}`; output.alt = heroCases[key].alt;
+    document.getElementById('hero-description').textContent = heroCases[key].text;
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      [input, output].forEach(img => img.animate([{opacity:.55}, {opacity:1}], {duration:220, easing:'ease-out'}));
+    }
+  } catch {
+    // Keep the current, fully loaded pair if a requested image cannot be decoded.
+  } finally {
+    if (selection === heroSelection) panel.removeAttribute('aria-busy');
+  }
+}
 document.querySelectorAll('.demo-tabs button').forEach((b,i,all)=>{b.tabIndex=b.getAttribute('aria-selected')==='true'?0:-1;b.addEventListener('click',()=>selectHero(b));b.addEventListener('keydown',e=>{let k=i;if(e.key==='ArrowRight')k=(i+1)%all.length;else if(e.key==='ArrowLeft')k=(i+all.length-1)%all.length;else if(e.key==='Home')k=0;else if(e.key==='End')k=all.length-1;else return;e.preventDefault();all[k].focus();selectHero(all[k])})});
 // All demonstrations are recorded research results, not live model inference.
 function bindComparisons(root=document){root.querySelectorAll('.comparison input').forEach(input=>{input.addEventListener('input',()=>input.closest('.comparison').style.setProperty('--split',`${input.value}%`));});}
@@ -52,12 +75,10 @@ const gallery=[
 {key:'pastry',task:'move',title:'Move a pastry',desc:'Move a single pastry to the marked area.',w:768,h:1344},
 {key:'lamp',task:'move',title:'Move a vase',desc:'Move the marked turquoise vase to the destination circle.',w:1216,h:832}
 ];
-const taskLabels={add:'Addition',remove:'Removal',modify:'Attribute modification',replace:'Replacement',move:'Movement'};
-function renderGallery(){const grid=document.getElementById('gallery-grid');grid.innerHTML=gallery.map(c=>`<article class="gallery-card"><div class="comparison" style="--split:52%;aspect-ratio:${c.w}/${c.h}"><img src="assets/images/${c.key}-output.webp" width="${c.w}" height="${c.h}" alt="VibeEdit output. ${c.desc}" loading="lazy"><img class="compare-before" src="assets/images/${c.key}-canvas.webp" width="${c.w}" height="${c.h}" alt="Canvas instruction. ${c.desc}" loading="lazy"><span class="compare-label left-label">Canvas</span><span class="compare-label right-label">Output</span><span class="compare-divider" aria-hidden="true"><span>‹ ›</span></span><input type="range" min="0" max="100" value="52" aria-label="Compare canvas and output: ${c.title}"></div><div class="gallery-caption"><div><h3>${c.title}</h3><p>${taskLabels[c.task]}</p></div><button class="text-button" data-enlarge="${c.key}" aria-label="Enlarge example: ${c.title}">Enlarge</button></div></article>`).join('');bindComparisons(grid);grid.querySelectorAll('[data-enlarge]').forEach(button=>button.addEventListener('click',()=>openCase(button.dataset.enlarge)));}
+function renderGallery(){const grid=document.getElementById('gallery-grid');grid.innerHTML=[...gallery].sort((a,b)=>(a.w<a.h)-(b.w<b.h)).map(c=>`<article class="gallery-card ${c.w<c.h?'portrait':'landscape'}"><div class="comparison" style="--split:52%"><img src="assets/images/${c.key}-output.webp" width="${c.w}" height="${c.h}" alt="VibeEdit output. ${c.desc}" loading="lazy" decoding="async"><img class="compare-before" src="assets/images/${c.key}-canvas.webp" width="${c.w}" height="${c.h}" alt="Canvas instruction. ${c.desc}" loading="lazy" decoding="async"><span class="compare-label left-label">Canvas</span><span class="compare-label right-label">Output</span><span class="compare-divider" aria-hidden="true"><span>‹ ›</span></span><input type="range" min="0" max="100" value="52" aria-label="Compare canvas and output: ${c.title}"></div><div class="gallery-caption"><div><h3>${c.title}</h3></div><button class="text-button" data-enlarge="${c.key}" aria-label="Enlarge example: ${c.title}">Enlarge</button></div></article>`).join('');bindComparisons(grid);grid.querySelectorAll('[data-enlarge]').forEach(button=>button.addEventListener('click',()=>openCase(button.dataset.enlarge)));}
 renderGallery();
 const modal=document.getElementById('image-modal');const modalContent=document.getElementById('modal-content');function showModal(){modal.showModal();document.body.classList.add('modal-open');}function openCase(key){const c=gallery.find(x=>x.key===key);document.getElementById('modal-title').textContent=c.title;modalContent.innerHTML=`<div class="modal-pair"><figure><figcaption>Canvas instruction</figcaption><img src="assets/images/${key}-canvas.webp" alt="Canvas instruction: ${c.desc}"></figure><figure><figcaption>VibeEdit output</figcaption><img src="assets/images/${key}-output.webp" alt="Edited result: ${c.desc}"></figure></div>`;document.getElementById('modal-caption').textContent=c.desc;showModal();}
-document.getElementById('close-modal').addEventListener('click',()=>modal.close());modal.addEventListener('close',()=>document.body.classList.remove('modal-open'));modal.addEventListener('click',event=>{if(event.target===modal){const r=modal.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)modal.close();}});document.querySelectorAll('[data-figure]').forEach(button=>button.addEventListener('click',()=>{const key=button.dataset.figure;document.getElementById('modal-title').textContent={pipe:'Model pipeline','data-pipe':'Data construction pipeline',demo:'Qualitative baseline comparison'}[key];modalContent.innerHTML=`<img class="modal-figure" src="assets/figures/${key}.webp" alt="${document.getElementById('modal-title').textContent}">`;document.getElementById('modal-caption').innerHTML=`Original figure from the paper. <a href="assets/figures/${key}.pdf" target="_blank" rel="noopener">Open the vector PDF for more detail</a>.`;showModal();}));
-document.getElementById('copy-citation').addEventListener('click',async()=>{const citation=document.getElementById('bibtex').textContent;try{if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText(citation);}else{const area=document.createElement('textarea');area.value=citation;area.style.position='fixed';area.style.opacity='0';document.body.append(area);area.select();const ok=document.execCommand('copy');area.remove();if(!ok)throw new Error('copy unavailable');}document.getElementById('copy-status').textContent='Citation copied.';document.getElementById('copy-citation').textContent='Copied';}catch{document.getElementById('copy-status').textContent='Select the citation text above to copy it.';}});
+document.getElementById('close-modal').addEventListener('click',()=>modal.close());modal.addEventListener('close',()=>document.body.classList.remove('modal-open'));modal.addEventListener('click',event=>{if(event.target===modal){const r=modal.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)modal.close();}});document.querySelectorAll('[data-figure]').forEach(button=>button.addEventListener('click',()=>{const key=button.dataset.figure;document.getElementById('modal-title').textContent={pipe:'Model pipeline','data-pipe':'Data construction pipeline',demo:'Qualitative baseline comparison'}[key];modalContent.innerHTML=`<img class="modal-figure" src="assets/figures/${key}.webp" alt="${document.getElementById('modal-title').textContent}">`;document.getElementById('modal-caption').innerHTML=`<a href="assets/figures/${key}.pdf" target="_blank" rel="noopener">Open full-resolution PDF</a>.`;showModal();}));
 const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){document.querySelectorAll('.site-header nav a').forEach(link=>{const active=link.hash===`#${entry.target.id}`;link.classList.toggle('active',active);if(active)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current');});}});},{rootMargin:'-15% 0px -60% 0px'});document.querySelectorAll('main section[id]').forEach(s=>observer.observe(s));
 
 // Canvas-instruction animation. This replays an existing result; no inference request is made.
@@ -69,14 +90,28 @@ const strokeLength = stroke.getTotalLength();
 const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 let editTime = 0, editPlaying = false, editFrame = 0, editPreviousTime = 0;
 let editInView = false, editUserPaused = reduceMotion;
-const editLoopDuration = 11000;
+const editLoopDuration = 12000;
+const animationUI = {
+  overlay: document.getElementById('drawing-overlay'),
+  note1: document.getElementById('note-reveal-1'),
+  note2: document.getElementById('note-reveal-2'),
+  progress: document.getElementById('model-progress-fill'),
+  result: document.getElementById('animated-result'),
+  waiting: document.getElementById('output-waiting'),
+  status: document.getElementById('model-status'),
+  steps: [...document.querySelectorAll('[data-animation-step]')]
+};
+let renderedStep = -1;
 const clamp01 = value => Math.max(0, Math.min(1, value));
+const smooth01 = value => {const t = clamp01(value); return t * t * (3 - 2 * t);};
 function renderEditing(time) {
-  const draw = clamp01((time - 600) / 2200);
+  const fade = 1 - smooth01((time - 11000) / 1000);
+  animationUI.overlay.style.opacity = String(fade);
+  const draw = smooth01((time - 600) / 2200);
   stroke.style.strokeDashoffset = String(1 - draw);
   const word1 = clamp01((time - 2900) / 1050), word2 = clamp01((time - 4050) / 1150);
-  document.getElementById('note-reveal-1').setAttribute('width', String(word1 * 290));
-  document.getElementById('note-reveal-2').setAttribute('width', String(word2 * 305));
+  animationUI.note1.setAttribute('width', String(word1 * 290));
+  animationUI.note2.setAttribute('width', String(word2 * 305));
   let point;
   if (time >= 600 && time < 2800) point = stroke.getPointAtLength(draw * strokeLength);
   else if (time >= 2900 && time < 3950) point = {x:650 + word1 * 282, y:94};
@@ -84,14 +119,17 @@ function renderEditing(time) {
   brush.style.opacity = point ? '1' : '0';
   if (point) brush.setAttribute('transform', `translate(${point.x} ${point.y})`);
   const generation = clamp01((time - 5600) / 2100);
-  const reveal = clamp01((time - 7700) / 900);
-  document.getElementById('model-progress-fill').style.width = `${generation * 100}%`;
-  document.getElementById('animated-result').style.opacity = String(reveal);
-  document.getElementById('output-waiting').style.opacity = String(1 - reveal);
-  document.getElementById('model-status').textContent = time < 5600 ? 'Ready' : time < 7700 ? 'Editing…' : 'Complete';
+  const reveal = smooth01((time - 7700) / 900) * fade;
+  animationUI.progress.style.transform = `scaleX(${generation * fade})`;
+  animationUI.result.style.opacity = String(reveal);
+  animationUI.waiting.style.opacity = String(1 - reveal);
   const step = time < 5600 ? 0 : time < 7700 ? 1 : 2;
-  editingDemo.dataset.step = String(step);
-  document.querySelectorAll('[data-animation-step]').forEach(button => button.setAttribute('aria-pressed', Number(button.dataset.animationStep) === step));
+  if (step !== renderedStep) {
+    renderedStep = step;
+    animationUI.status.textContent = ['Ready', 'Editing…', 'Complete'][step];
+    editingDemo.dataset.step = String(step);
+    animationUI.steps.forEach(button => button.setAttribute('aria-pressed', Number(button.dataset.animationStep) === step));
+  }
 }
 function pauseEditing() {
   editPlaying = false;

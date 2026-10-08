@@ -35,3 +35,130 @@ tbody th{background:inherit;font-size:12px;font-weight:400;color:inherit}.ours-r
 @media(max-width:600px){.hero>.authors{margin-top:20px;padding-inline:6px}.hero>.hero-demo{margin-bottom:32px}}
 
 .hero-actions .button{display:inline-flex;align-items:center;justify-content:center;gap:9px}.hero-actions .button>svg{width:18px;height:18px;flex-shrink:0}.hero-actions .button-unavailable{cursor:default;color:var(--muted);background:transparent;box-shadow:none;transform:none}.coming-soon{font-size:11px;color:var(--muted);margin-left:3px}
+
+/* Final editorial pass: quiet hierarchy, full images and a consistent reading grid. */
+.wrap{max-width:1160px}
+.hero{padding-top:48px}
+.hero h1{font-size:clamp(72px,8vw,104px);margin:0 0 22px;line-height:1.02}
+.hero h2{font-size:clamp(23px,2.3vw,30px);line-height:1.3;font-weight:500;max-width:760px;margin-inline:auto;text-wrap:balance}
+.hero>.authors{max-width:960px;margin-top:27px}
+.author-list{display:flex;justify-content:center;flex-wrap:wrap;column-gap:18px;row-gap:7px;font-size:15px;line-height:1.8;word-spacing:normal}
+.author-list>span{white-space:nowrap}
+.authors sup{font-size:10px;margin-left:1px}
+.hero>.authors details{margin-top:15px}
+.authors summary{font-size:13px;padding-bottom:3px}
+.authors details p{line-height:1.9;max-width:900px;margin-inline:auto}
+.hero-actions{margin:25px 0 38px;gap:12px}
+.hero-actions .button{min-width:122px;min-height:46px}
+.hero-demo{box-shadow:none;border-radius:8px}
+.demo-top{justify-content:center}
+.demo-tabs{justify-content:center}
+.hero-pair img{aspect-ratio:3/2;object-fit:contain;background:#f1f1ed}
+.hero-pair{padding:18px 18px 0;gap:18px}
+.image-caption{font-size:12px}
+.demo-footer{padding:18px 20px}
+.hero>.hero-demo{margin-bottom:60px}
+.section{padding-block:88px}
+.simple-heading{grid-template-columns:1fr 1.25fr;gap:50px;margin-bottom:38px}
+.simple-heading h2{font-size:48px;font-weight:500;letter-spacing:-.045em}
+.simple-heading>p{font-size:16px;line-height:1.75;max-width:560px}
+.simple-heading .section-number{border:0;width:auto;height:auto;font-size:12px;font-weight:500;letter-spacing:.04em}
+.simple-heading>div{gap:17px}
+.abstract-grid h2{font-size:36px;letter-spacing:-.04em}
+.abstract-grid .large-copy{font-size:28px;line-height:1.4;letter-spacing:-.025em}
+.grammar-grid h3{font-size:21px;font-weight:500}
+.grammar-grid p{font-size:14px;line-height:1.65}
+.animation-heading{padding:24px 26px;gap:20px}
+.animation-heading h3{font-size:23px;letter-spacing:-.025em;line-height:1.4}
+.animation-controls{flex-shrink:0}
+.animation-canvas-row{padding:0 26px 26px;grid-template-columns:minmax(0,1fr) 100px minmax(0,1fr)}
+.animation-canvas-row figcaption{font-size:12px}
+.model-progress i{width:100%;transform:scaleX(0);transform-origin:left;will-change:transform}
+#animated-result,#drawing-overlay{will-change:opacity}
+#animated-result{transition:none}
+.animation-bottom{padding:16px 26px}
+.method-nav button{font-size:15px;line-height:1.5;padding-bottom:19px}
+.method-intro h3,.method-explainer h3{font-size:24px;letter-spacing:-.025em;line-height:1.35}
+.method-intro p,.method-explainer p{font-size:15px;line-height:1.8}
+.flow-inputs{max-width:940px;gap:28px}
+.flow-inputs img{object-fit:contain;background:#f2f3ee}
+.flow-inputs>div>span{font-size:14px;line-height:1.6}
+.flow-inputs .encoder{font-size:14px}
+.paper-figure summary{font-size:15px;padding-block:21px}
+.paper-figure img{height:auto;display:block}
+.method-section .rl-step-title{font-size:22px;line-height:1.4}
+.rollout-gallery{gap:18px}
+.rollout-gallery img{object-fit:contain;background:#f1f2ed}
+.rollout-gallery figcaption{font-size:14px}
+.rollout-gallery figcaption>span{font-size:11px}
+.reward-intro>p{max-width:760px}
+.reward-criteria h4{font-size:21px}
+.reward-criteria p{max-width:none;line-height:1.8}
+.nft-node>p{font-size:12px;line-height:1.75}
+.nft-node .mini-label{font-size:10px;letter-spacing:.04em}
+.data-summary>div{display:block}
+.data-summary strong{font-size:48px;line-height:1.2;letter-spacing:-.045em}
+.data-summary span{display:block;font-size:14px;margin-top:8px}
+.construction-flow p{font-size:15px;line-height:1.75}
+.data-table caption{font-size:15px}
+.data-table td,.data-table th{font-size:14px;line-height:1.7}
+.data-bottom p{font-size:12px}
+.evaluation-intro{gap:52px}
+.benchmark-description p{font-size:15px;line-height:1.8}
+.metrics-description dd{font-size:14px;line-height:1.8}
+.benchmark-counts span{font-size:12px}
+.benchmark-table th,.benchmark-table td{font-size:13px}
+.gallery-grid{columns:initial;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:34px 24px}
+.gallery-card{display:block;margin:0;min-width:0}
+.gallery-card .comparison{aspect-ratio:4/5;background:#eeeee8}
+.gallery-card .comparison>img{object-fit:contain;background:#eeeee8}
+.gallery-caption{align-items:baseline;padding-top:14px;gap:12px}
+.gallery-caption h3{font-size:16px;font-weight:500;line-height:1.45}
+.gallery-caption .text-button{font-size:12px;flex-shrink:0;padding-block:5px}
+.gallery-card .compare-label{font-size:10px;line-height:1.5}
+.paper-section{display:flex;justify-content:space-between;align-items:center;gap:35px;padding-block:42px}
+.paper-section h2{font-size:28px;font-weight:500;letter-spacing:-.025em;margin:0 0 10px}
+.paper-section>div>p{font-size:14px}
+.paper-section .paper-actions{margin:0;flex-shrink:0;display:flex;gap:12px}
+.paper-section .button{display:inline-flex;align-items:center;gap:16px}
+button,a,input,summary{-webkit-tap-highlight-color:transparent}
+.button,.text-button{transition:background-color .18s,color .18s,border-color .18s}
+@media(max-width:1000px){
+ .simple-heading{gap:30px}.hero>.authors{max-width:780px}.author-list{font-size:14px;column-gap:15px}
+ .nft-flow{grid-template-columns:1fr 18px 1fr;gap:12px}.nft-arrow:nth-of-type(2){display:none}.nft-node{padding:18px}.nft-node .mini-label{font-size:10px}.nft-branches>div>strong{font-size:16px}
+ .evaluation-intro{gap:32px}.gallery-grid{gap:30px 18px}.data-summary strong{font-size:42px}
+}
+@media(max-width:800px){
+ .hero{padding-top:36px}.simple-heading{grid-template-columns:1fr;gap:18px}.simple-heading h2{font-size:43px}.section{padding-block:68px}
+ .hero h2{max-width:600px}.author-list{font-size:14px;row-gap:6px}.hero>.authors{max-width:600px}
+ .gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.method-nav button{font-size:13px}
+ .flow-inputs{gap:16px}.flow-inputs>div>span{font-size:12px}.flow-inputs .encoder{font-size:12px}
+ .animation-canvas-row{padding:0 18px 22px;grid-template-columns:minmax(0,1fr) 82px minmax(0,1fr)}
+ .paper-section{align-items:flex-start;flex-direction:column;gap:24px}.data-table-wrap{overflow-x:auto}.data-table{min-width:590px}
+}
+@media(max-width:600px){
+ .site-header{height:auto;min-height:100px;display:grid;grid-template-columns:1fr auto;padding:14px 18px 0;row-gap:12px}
+ .site-header nav{grid-column:1/-1;grid-row:2;display:flex;justify-content:space-between;gap:14px;overflow-x:auto;white-space:nowrap;font-size:12px;padding:0 0 13px}
+ section[id]{scroll-margin-top:118px}.hero{padding-top:34px}.hero h1{font-size:76px;margin-bottom:20px}.hero h2{font-size:24px;max-width:360px}
+ .author-list{font-size:13px;column-gap:13px;row-gap:7px}.hero>.authors{padding:0;margin-top:24px}.authors details p{font-size:12px}
+ .hero-actions{margin:24px 0 28px}.hero>.hero-demo{margin-bottom:40px}.hero-pair{padding:12px 12px 0;gap:13px}.demo-footer{padding:14px}
+ .simple-heading h2{font-size:38px}.simple-heading>p{font-size:15px}.section{padding-block:56px}.section-heading{margin-bottom:30px}
+ .abstract-grid .large-copy{font-size:25px}.grammar-grid h3{font-size:20px}.grammar-grid p{font-size:13px}
+ .animation-heading{padding:20px;gap:13px}.animation-heading h3{font-size:21px}.animation-canvas-row{grid-template-columns:1fr;padding:0 16px 20px}.animation-bottom{padding:16px 18px}
+ .animation-steps{gap:18px}.animation-steps button{font-size:12px}.method-nav{gap:8px}.method-nav button{font-size:12px;padding-inline:0;line-height:1.5}
+ .method-intro h3,.method-explainer h3{font-size:22px}.method-section .rl-step-title{font-size:20px}
+ .flow-inputs{gap:9px}.flow-inputs>div>span{font-size:11px}.flow-inputs .encoder{font-size:10px}
+ .reward-criteria h4{font-size:20px}.reward-criteria p{font-size:15px}.nft-flow{grid-template-columns:1fr;gap:8px}.nft-arrow,.nft-arrow:nth-of-type(2){display:block;transform:rotate(90deg);text-align:center}
+ .nft-node{padding:20px}.nft-node>p{font-size:13px}.nft-node .mini-label{font-size:11px}.nft-branches>div>strong{font-size:17px}
+ .data-summary{gap:18px}.data-summary strong{font-size:32px}.data-summary span{font-size:12px}.construction-flow p{font-size:14px}.data-table td,.data-table th{font-size:13px}
+ .evaluation-intro{gap:28px}.benchmark-description p{font-size:14px}.metrics-description dd{font-size:14px}
+ .gallery-grid{grid-template-columns:1fr;gap:30px;max-width:430px;margin-inline:auto}.gallery-card .comparison{aspect-ratio:4/5}.gallery-caption h3{font-size:17px}
+ .paper-section .paper-actions{flex-wrap:wrap}.paper-section>div>p{line-height:1.7}.paper-section h2{font-size:26px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+@media(min-width:901px){.author-list{display:grid;grid-template-columns:repeat(6,max-content);column-gap:19px;row-gap:7px}}
+
+.gallery-card.landscape .comparison{aspect-ratio:3/2}.gallery-card.portrait .comparison{aspect-ratio:2/3}
+@media(max-width:600px){.method-nav button{display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:8px;text-align:left}.method-nav button>span{margin:0}}
+@media(max-width:480px){.author-list{display:grid;grid-template-columns:repeat(2,max-content);column-gap:22px;row-gap:5px}}

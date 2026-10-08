@@ -30,3 +30,5 @@ Open http://localhost:8087/.
 GitHub links to this repository. Both the hero Paper button and the Paper PDF link open `assets/papers/VibeEdit.pdf`, an identical copy of `asserts/VibeEdit.pdf` on `main`. Keeping the PDF with the site makes it accessible directly through GitHub Pages. When updating the manuscript, replace both copies.
 
 All example images come from the paper. Animations replay recorded results and do not run model inference. The three displayed reward questions are excerpts from the appendix.
+
+The citation section is omitted until the arXiv release. The page uses responsive typography, complete uncropped example images, and a 12-second looping interface demonstration. Animation pauses off-screen and respects reduced-motion preferences.
