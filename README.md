@@ -27,8 +27,8 @@ Open http://localhost:8087/.
 - `app.js`: image comparisons, animations, gallery and table interactions.
 - `assets/`: local images, fonts, logo, paper figures and manuscript source.
 
-GitHub links to this repository. Both the hero Paper button and the Paper PDF link open `assets/papers/VibeEdit.pdf`, an identical copy of `asserts/VibeEdit.pdf` on `main`. Keeping the PDF with the site makes it accessible directly through GitHub Pages. When updating the manuscript, replace both copies.
+GitHub links to this repository. All Paper links open the published arXiv page at https://arxiv.org/abs/2610.12229. The original local manuscript remains available at `assets/papers/VibeEdit.pdf`.
 
 All example images come from the paper. Animations replay recorded results and do not run model inference. The three displayed reward questions are excerpts from the appendix.
 
-The citation section is omitted until the arXiv release. The page uses responsive typography, complete uncropped example images, and a 12-second looping interface demonstration. Animation pauses off-screen and respects reduced-motion preferences.
+The BibTeX section contains the published arXiv citation and a copy button. The page uses responsive typography, complete uncropped example images, and a 12-second looping interface demonstration. Animation pauses off-screen and respects reduced-motion preferences.

@@ -162,3 +162,14 @@ button,a,input,summary{-webkit-tap-highlight-color:transparent}
 .gallery-card.landscape .comparison{aspect-ratio:3/2}.gallery-card.portrait .comparison{aspect-ratio:2/3}
 @media(max-width:600px){.method-nav button{display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:8px;text-align:left}.method-nav button>span{margin:0}}
 @media(max-width:480px){.author-list{display:grid;grid-template-columns:repeat(2,max-content);column-gap:22px;row-gap:5px}}
+
+/* Published arXiv citation. */
+.citation-section{padding-bottom:42px}
+.citation-heading{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:18px}
+.citation-heading h2{font-size:28px;font-weight:500;letter-spacing:-.025em;margin:0}
+.citation-heading button{font-size:13px;padding:8px 0}
+.citation-section .citation{padding:24px 28px}
+.citation-section pre{margin:0;font-size:13px;line-height:1.8;color:var(--ink);tab-size:2}
+.citation-section pre:focus-visible{outline:2px solid var(--accent);outline-offset:6px}
+.citation-section #copy-status{min-height:1.6em;margin:10px 0 0;font-size:12px;color:var(--accent)}
+@media(max-width:600px){.citation-section{padding-bottom:28px}.citation-heading h2{font-size:26px}.citation-section .citation{padding:18px}.citation-section pre{font-size:12px;line-height:1.75}}

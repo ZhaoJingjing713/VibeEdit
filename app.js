@@ -208,3 +208,22 @@ document.getElementById('nft-replay').addEventListener('click', () => {
   showNFTPhase(0);
   for (let phase = 1; phase < 5; phase++) nftTimers.push(setTimeout(() => showNFTPhase(phase), phase * 1700));
 });
+
+// Copy the published citation; leave selectable text if clipboard access is unavailable.
+const copyCitation = document.getElementById('copy-citation');
+copyCitation.addEventListener('click', async () => {
+  const citation = document.getElementById('bibtex');
+  const status = document.getElementById('copy-status');
+  try {
+    await navigator.clipboard.writeText(citation.textContent);
+    status.textContent = 'BibTeX copied.';
+  } catch {
+    const range = document.createRange();
+    range.selectNodeContents(citation);
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+    citation.focus();
+    status.textContent = 'Select and copy the BibTeX above.';
+  }
+});
